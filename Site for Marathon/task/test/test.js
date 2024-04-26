@@ -14,7 +14,7 @@ class Test extends StageTest {
 
       return youtubeIframe && weatherIframe ?
         correct() :
-        wrong('The page must have iframes with content from YouTube and the weather widget. Each of these iframes must have a parent div with the class .iframe-container');
+        wrong('The page must have iframes with content from YouTube and the weather widget. Each of these iframes must have a parent div with the class .iframe-container')
     }),
 
     // Test 2 - check that there are no indents
@@ -27,7 +27,7 @@ class Test extends StageTest {
 
       return bodyStyles?.margin === '0px' && bodyStyles?.padding === '0px'
       && youtubeIframeStyles?.margin === '0px' && youtubeIframeStyles?.padding === '0px'
-      && weatherIframeStyles?.margin === '0px' && weatherIframeStyles?.padding === '0px'?
+      && weatherIframeStyles?.margin === '0px' && weatherIframeStyles?.padding === '0px' ?
         correct() :
         wrong('Should remove any margin and padding from the body and iframes');
     }),
@@ -66,10 +66,65 @@ class Test extends StageTest {
         correct() :
         wrong('Hide the controls for YouTube iframe');
     }),
+
+    // Test 6 - check div with the class distance-container
+    this.page.execute(async () => {
+      const iframeContainers = document.querySelectorAll('.iframe-container');
+      const distanceContainer = document.querySelector('.distance-container');
+
+      return distanceContainer
+      && iframeContainers.length === 2
+      && iframeContainers[1].nextElementSibling?.classList.contains('distance-container') ?
+        correct() :
+        wrong('Should have a div with the class distance-container below the iframes"')
+    }),
+
+    // Test 7 - check title for distances list
+    this.page.execute(async () => {
+      const distanceTitle = document.querySelector('.distance-container h2');
+      const distanceTitleContent = distanceTitle?.textContent;
+
+      return distanceTitleContent === 'Running Distances' ?
+        correct() :
+        wrong('This component should have a title "Running Distances"')
+    }),
+
+    // Test 8 - check distances list size
+    this.page.execute(() => {
+      const distanceContainer = document.querySelector('.distance-container');
+      const distances = distanceContainer.querySelectorAll('.distance');
+
+      return distances.length === 5 ?
+        correct() :
+        wrong(`Please add all 5 distance`)
+    }),
+
+    // Test 9 - check distances content
+    this.page.execute(() => {
+      const distanceContainer = document.querySelector('.distance-container');
+      const distances = distanceContainer?.querySelectorAll('.distance');
+      let count = 0;
+
+      for (const distance of distances) {
+        const title = distance.querySelector('h2');
+        const image = distance.querySelector('img');
+        const text = distance.querySelector('p');
+        if (title && title?.textContent.length > 0
+          && image && image?.getAttribute('src')
+          && text && text?.textContent.length > 0
+        ) {
+          ++count
+        }
+      }
+
+      return count === 5 ?
+        correct() :
+        wrong('Be sure each distance have a title, image with src, and description')
+    }),
   ]
 }
 
-it("Test stage", async () => {
+it('Test stage', async () => {
     await new Test().runTests()
   }
 ).timeout(30000);
