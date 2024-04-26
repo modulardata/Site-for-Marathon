@@ -112,13 +112,15 @@ class Test extends StageTest {
         wrong('Make sure you add 5 courses and each has a title, image with src, and description')
     }),
 
-    // Test 9 - check .video-overlay block
+    // Test 9 - check .video-overlay block and its content
     this.page.execute(async () => {
       const videoOverlay = document.querySelector('.iframe-container iframe[src*="youtube"] + .video-overlay');
+      const title = videoOverlay?.querySelector('h1');
+      const button = videoOverlay?.querySelector('button');
 
-      return videoOverlay ?
+      return videoOverlay && title && button ?
         correct() :
-        wrong('Make sure you add a .video-overlay block next to the YouTube iframe');
+        wrong('Make sure you add a .video-overlay block with title and button');
     }),
 
     // Test 10 - check .video-overlay styles
@@ -131,25 +133,7 @@ class Test extends StageTest {
         wrong('The .video-overlay block should have absolute positioning and a black background with 50% transparency');
     }),
 
-    // Test 11 - check title in .video-overlay block
-    this.page.execute(async () => {
-      const videoOverlay = document.querySelector('.iframe-container iframe[src*="youtube"] + .video-overlay');
-
-      return videoOverlay?.querySelector('h1') ?
-        correct() :
-        wrong('Make sure you add a header to the first iframe-container');
-    }),
-
-    // Test 12 - check button in .video-overlay block
-    this.page.execute(async () => {
-      const videoOverlay = document.querySelector('.iframe-container iframe[src*="youtube"] + .video-overlay');
-
-      return videoOverlay?.querySelector('button') ?
-        correct() :
-        wrong('Make sure you add a button to the first iframe-container');
-    }),
-
-    // Test 13 - check fonts
+    // Test 11 - check fonts
     this.page.execute(async () => {
       const body = document.querySelector('body');
       const fontFamily = window.getComputedStyle(body).getPropertyValue('font-family');
@@ -164,7 +148,7 @@ class Test extends StageTest {
         wrong('Make sure that the body tag is set to all fonts: Roboto, Helvetica Neue, Arial, sans-serif');
     }),
 
-    // Test 14 - check video title styles
+    // Test 12 - check video title styles
     this.page.execute(async () => {
       const videoOverlay = document.querySelector('.iframe-container iframe[src*="youtube"] + .video-overlay');
       const videoTitle = videoOverlay?.querySelector('h1');
@@ -175,7 +159,7 @@ class Test extends StageTest {
         wrong('The video block should have a header with a fontSize of 73px, white colour and a top indent of 150px');
     }),
 
-    // Test 15 - check video button styles
+    // Test 13 - check video button styles
     this.page.execute(async () => {
       const videoOverlay = document.querySelector('.iframe-container iframe[src*="youtube"] + .video-overlay');
       const videoButton = videoOverlay?.querySelector('button');
@@ -192,7 +176,7 @@ class Test extends StageTest {
         wrong('The button should have the following styles: padding 5px 10px, white border (2px), white colour, transparent background, text "Join us!" with font size 24px');
     }),
 
-    // Test 16 - check list of distances maximum width and position
+    // Test 14 - check list of distances maximum width
     this.page.execute(async () => {
       const distanceContainer = document.querySelector('.distance-container');
       const styles = window.getComputedStyle(distanceContainer);
@@ -203,7 +187,7 @@ class Test extends StageTest {
         wrong('Make sure that the list of distances has a maximum width of 1000px and is placed in the middle');
     }),
 
-    // Test 17 - check distance list header font size
+    // Test 15 - check distance list header font size
     this.page.execute(async () => {
       const distanceContainer = document.querySelector('.distance-container');
       const distanceHeader = distanceContainer?.querySelector('h2');
@@ -214,7 +198,7 @@ class Test extends StageTest {
         wrong('Make sure that the font size of the distance list header is 32px');
     }),
 
-    // Test 18 - alternate the image position on every list item
+    // Test 16 - alternate the image position on every list item
     this.page.execute(async () => {
       const distancesList = document.querySelectorAll('ul li');
       let isAlternate = true;
@@ -234,7 +218,7 @@ class Test extends StageTest {
         wrong('Make sure that alternate the image position on every list item');
     }),
 
-    // Test 19 - check list item styles
+    // Test 17 - check list item styles
     this.page.execute(async () => {
       const distancesList = document.querySelectorAll('ul li');
       let validStyles = true;
@@ -249,6 +233,34 @@ class Test extends StageTest {
       return validStyles ?
         correct() :
         wrong('Ensure that the list items have the properties `display: table` and `clear: both`');
+    }),
+
+    // Test 18 - check map container
+    this.page.execute(async () => {
+      const mapContainer = document.querySelector('.map-container');
+
+      return mapContainer ?
+        correct() :
+        wrong('The page should have a map container')
+    }),
+
+    // Test 19 - check map title
+    this.page.execute(async () => {
+      const mapTitle = document.querySelector('.map-container h2');
+      const mapTitleContent = mapTitle?.textContent;
+
+      return mapTitleContent === 'See you at Big Ben!' ?
+        correct() :
+        wrong('The map should have title with text See you at Big Ben!')
+    }),
+
+    // Test 20 - check iframe with map
+    this.page.execute(async () => {
+      const embeddedMap = document.querySelector('.map-container iframe');
+
+      return embeddedMap && embeddedMap.src.includes('google.com/maps/embed') && embeddedMap.src.includes('Big%20Ben') ?
+        correct() :
+        wrong('The last iframe should have an embedded map with a point at Big Ben')
     }),
   ]
 }
