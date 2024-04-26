@@ -1,68 +1,99 @@
-body, iframe {
+/* Reset margins and padding for body and iframe */
+body,
+iframe {
     margin: 0;
     padding: 0;
-    height: 100%;
 }
 
+/* Set height and font-family for body */
+body {
+    height: 100%;
+    font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Styles for iframe container */
 .iframe-container {
     position: relative;
     width: 100vw;
 }
-.iframe-container iframe {
-    width: 100%;
-    height: 400px;
-    border: 1px solid #ccc;
-}
 
-.iframe-container .loader {
-    position: absolute;
-    top: 0;
-    left: 0;
+/* Styles for iframe */
+.iframe-container iframe,
+#ytplayer,
+#weather {
     width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#ytplayer {
-    position: relative;
     height: 80vh;
 }
 
-#ytplayer iframe {
+/* Styles for video overlay */
+.video-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: white;
 }
 
-#ytplayer.loader {
+/* Styles for video overlay header */
+.video-overlay h1 {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 73px;
+    color: white;
+    margin: 0;
 }
 
+/* Styles for video overlay button */
+.video-overlay button {
+    padding: 5px 10px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-size: 24px;
+}
+
+/* Styles for distance container */
 .distance-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .distance-container ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    list-style: none;
+    padding: 10px;
+}
+
+/* Styles for list item */
+.distance-container li {
+    overflow: hidden;
+    clear: both;
+    display: table;
+    margin-bottom: 20px;
+}
+
+/* Styles for images */
+.distance-container img {
+    width: 300px;
+    height: 200px;
+}
+
+/* Styles for list header */
+.distance-container h2 {
+    font-size: 32px;
+}
+
+/* Image alignment */
+.distance-container .img-left {
+    float: left;
+    margin-right: 30px;
+}
+
+.distance-container .img-right {
+    float: right;
+    margin-left: 30px;
 }
