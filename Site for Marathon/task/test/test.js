@@ -3,6 +3,14 @@ import path from 'path';
 const pagePath = path.join(import.meta.url, '../../src/index.html');
 import {StageTest, correct, wrong} from 'hs-test-web';
 
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
 class Test extends StageTest {
   page = this.getPage(pagePath);
 
@@ -37,7 +45,7 @@ class Test extends StageTest {
       const windowWidth = `${window.innerWidth}px`;
       const iframeContainer = document.getElementsByClassName('iframe-container');
       if (!iframeContainer || iframeContainer.length !== 2) {
-        return wrong('Make sure there are still 2 iframe-containers on the page');
+        return wrong('Make sure there are 2 iframe-containers on the page');
       }
       const youtubeIframeContainerStyle = window.getComputedStyle(iframeContainer[0]);
       const weatherIframeContainerStyle = window.getComputedStyle(iframeContainer[1]);
@@ -235,16 +243,7 @@ class Test extends StageTest {
         wrong('Ensure that the list items have the properties `display: table` and `clear: both`');
     }),
 
-    // Test 18 - check map container
-    this.page.execute(async () => {
-      const mapContainer = document.querySelector('.map-container');
-
-      return mapContainer ?
-        correct() :
-        wrong('The page should have a map container')
-    }),
-
-    // Test 19 - check map title
+    // Test 18 - check map title
     this.page.execute(async () => {
       const mapTitle = document.querySelector('.map-container h2');
       const mapTitleContent = mapTitle?.textContent;
@@ -254,13 +253,52 @@ class Test extends StageTest {
         wrong('The map should have title with text See you at Big Ben!')
     }),
 
-    // Test 20 - check iframe with map
+    // Test 19 - check iframe with map
     this.page.execute(async () => {
       const embeddedMap = document.querySelector('.map-container iframe');
 
-      return embeddedMap && embeddedMap.src.includes('google.com/maps/embed') && embeddedMap.src.includes('Big%20Ben') ?
+      return embeddedMap && embeddedMap.src.includes('google.com/maps/embed') ?
         correct() :
-        wrong('The last iframe should have an embedded map with a point at Big Ben')
+        wrong('The last iframe should have an embedded map')
+    }),
+
+    // Test 20 - check .distance-image
+    this.page.execute(async () => {
+      const distanceImages = document.querySelectorAll('.distance-image');
+
+      return distanceImages && distanceImages.length === 5 ?
+        correct() :
+        wrong('Should have 5 images with the class distance-image')
+    }),
+
+    // Test 21 - check saturate filter applied by default
+    this.page.execute(async () => {
+      const distanceImages = document.querySelectorAll('.distance img');
+      let saturateImages = 0;
+
+      distanceImages.forEach((image) => {
+        const computedStyle = getComputedStyle(image);
+        if (computedStyle && computedStyle.filter === 'saturate(1)') {
+          saturateImages++;
+        }
+      });
+
+      return saturateImages === 5 ?
+        correct() :
+        wrong('Every image should have saturate filter applied by default');
+    }),
+
+    // Test 22 - check super-saturates on hover
+    this.node.execute(async () => {
+      const image = await this.page.findBySelector('.distance img');
+      await image.hover();
+      sleep(300);
+      const hoverImage = await this.page.findBySelector('.distance img:hover');
+      const styles = await hoverImage?.getComputedStyles();
+
+      return styles?.filter === 'saturate(2)' ?
+        correct() :
+        wrong('Every image should be super-saturates on hover');
     }),
   ]
 }

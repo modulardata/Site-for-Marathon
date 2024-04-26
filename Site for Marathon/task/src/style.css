@@ -97,3 +97,12 @@ body {
     float: right;
     margin-left: 30px;
 }
+
+
+.distance-image {
+    filter: saturate(100%);
+}
+
+.distance-image:hover {
+    filter: saturate(200%);
+}
