@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#youtube-iframe {
+    width: 100%;
+    height: 80%;
+}
+
+#meteoblue-iframe {
+    width: 100%;
+   ;
+}
+

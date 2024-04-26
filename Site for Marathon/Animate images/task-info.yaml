@@ -1,0 +1,498 @@
+type: edu
+files:
+  - name: src/index.html
+    visible: true
+    text: |
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="utf-8">
+          <title>Hello, World!</title>
+          <link rel="stylesheet" href="style.css">
+      </head>
+      <body>
+      <div class="iframe-container" id="youtube-container">
+          <iframe src="https://www.youtube.com/embed/R2_Mn-qRKjA?controls=0"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen>
+          </iframe>
+      
+          <div class="video-overlay">
+              <h1>You can do it!</h1>
+              <button class="join-button">Join us!</button>
+          </div>
+      </div>
+      
+      <div class="iframe-container" id="weather-container">
+          <iframe width="100%" src="https://www.meteoblue.com/en/weather/widget/daily/london_united-kingdom_2643743?geoloc=fixed&days=7&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windspeed=1&windgust=0&winddirection=0&winddirection=1&uv=0&humidity=0&precipitation=0&precipitation=1&precipitationprobability=0&precipitationprobability=1&spot=0&spot=1&pressure=0&layout=light"
+                  frameborder="0"
+                  scrolling="NO"
+                  allowtransparency="true"
+                  sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox">
+      
+          </iframe>
+      </div>
+      
+      <div class="distance-container">
+          <h2>Running Distances</h2>
+          <ul>
+              <li class="distance"><h2>1km: Fun Run</h2>
+                  <img src="https://media.tenor.com/52cBJVbyO6YAAAAC/spongebob-running.gif" alt="1km run">
+                  <p>
+                      This short and sweet 1km run is perfect for beginners or those who just want to have a bit of fun.
+                      Whether you're looking to kickstart your fitness journey or simply enjoy a leisurely jog in the great
+                      outdoors,
+                      this distance is a great way to get started.
+                  </p>
+              </li>
+      
+              <li class="distance"><h2>5km Run</h2>
+                  <img src="https://c.tenor.com/UyvQJFE4iAsAAAAM/spongebob-squarepants-spongebob.gif" alt="5km run">
+                  <p>
+                      With a distance of 5km, this run is a great challenge for beginner runners or those who want to improve
+                      their fitness.
+                      Whether you're looking to increase your speed or endurance, this distance will test your limits and help
+                      you reach your goals.
+                  </p>
+              </li>
+      
+              <li class="distance"><h2>10km Run</h2>
+                  <img src="https://i.makeagif.com/media/9-18-2016/qtCAMg.gif" alt="10km run">
+                  <p>
+                      The 10km run is a great intermediate distance that offers a challenge to runners who have already
+                      tackled shorter races.
+                      With a mix of speed and endurance, this distance requires a bit more training and dedication, but the
+                      sense of accomplishment
+                      you'll feel at the finish line will be well worth it.
+                  </p>
+              </li>
+      
+              <li class="distance"><h2>21km Run</h2>
+                  <img src="https://i.makeagif.com/media/10-20-2020/ABYCFX.gif" alt="21km run">
+                  <p>
+                      The half marathon is a major milestone for runners and requires dedicated training to complete. At a
+                      distance of 21km,
+                      this run will push you to your limits both physically and mentally, but the feeling of crossing the
+                      finish line is an experience
+                      like no other.
+                  </p>
+              </li>
+      
+              <li class="distance"><h2>42km Run</h2>
+                  <img src="https://i.gifer.com/CX8C.gif" alt="42km run">
+                  <p>
+                      The full marathon is the ultimate challenge for runners and requires months of intense training to
+                      complete. With a distance of 42km,
+                      this run is not for the faint of heart, but for those who are willing to put in the time and effort, the
+                      feeling of crossing the
+                      finish line is a truly unforgettable experience.
+                  </p>
+              </li>
+          </ul>
+      
+          <div class="map-container">
+              <h2>See you at Big Ben!</h2>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.6749261662035!2d-0.12738273124519411!3d51.50083261966173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604c38c8cd1d9%3A0xb78f2474b9a45aa9!2sBig%20Ben!5e0!3m2!1spl!2spl!4v1692605212772!5m2!1spl!2spl"
+                      width="1000" height="550"
+                      style="border:0;" allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+      </div>
+      </body>
+      </html>
+    learner_created: false
+  - name: src/style.css
+    visible: true
+    text: |
+      body {
+          margin: 0;
+          padding: 0;
+          width: 100vw;
+          font-family: Roboto, Helvetica Neue, Arial, sans-serif;
+      }
+      
+      #youtube-container {
+          width: 100%;
+      }
+      
+      #weather-container > iframe {
+          width: 100vw;
+          height: 800px;
+      }
+      
+      #youtube-container > iframe {
+          width: 100%;
+          height: 80vh;
+      }
+      .video-overlay {
+          position: absolute;
+          width: 100%;
+          background-color: rgba(0, 0, 0, 50%);
+          text-align: center;
+          top: 0;
+      }
+      
+      .video-overlay > h1 {;
+          font-size: 73px;
+          color: white;
+          top: 150px;
+          left: auto;
+      }
+      
+      .video-overlay > button {
+          padding: 5px 10px;
+          border: 2px solid white;
+          font-size: 24px;
+          background-color: transparent;
+          color: white;
+      }
+      
+      .distance-container {
+          max-width: 1000px;
+          font-size: 32px;
+          margin: auto;
+      }
+      
+      .distance-container > h2 {
+          text-align: center;
+      }
+      
+      h2 {
+          font-size: 32px;
+      }
+      
+      .distance {
+          text-align: justify;
+          display: table;
+          clear: both;
+      }
+      
+      .distance:nth-child(odd) img {
+          float: left;
+          margin-right: 30px;
+      }
+      
+      .distance:nth-child(even) img {
+          float: right;
+          margin-left: 30px;
+      }
+    learner_created: false
+  - name: test/test.js
+    visible: false
+    text: |
+      import path from 'path';
+      
+      const pagePath = path.join(import.meta.url, '../../src/index.html');
+      import {StageTest, correct, wrong} from 'hs-test-web';
+      
+      function sleep(milliseconds) {
+        const date = Date.now();
+        let currentDate = null;
+        do {
+          currentDate = Date.now();
+        } while (currentDate - date < milliseconds);
+      }
+      
+      class Test extends StageTest {
+        page = this.getPage(pagePath);
+      
+        tests = [
+          // Test 1 - check iframes still exist
+          this.page.execute(() => {
+            const youtubeIframe = document.querySelector('.iframe-container iframe[src*="youtube"]');
+            const weatherIframe = document.querySelector('.iframe-container iframe[src*="meteoblue"]');
+      
+            return youtubeIframe && weatherIframe ?
+              correct() :
+              wrong('The page must have iframes with content from YouTube and the weather widget. Each of these iframes must have a parent div with the class .iframe-container')
+          }),
+      
+          // Test 2 - check that there are no indents
+          this.page.execute(() => {
+            const youtubeIframe = document.querySelector('.iframe-container iframe[src*="youtube"]');
+            const weatherIframe = document.querySelector('.iframe-container iframe[src*="meteoblue"]');
+            const bodyStyles = window.getComputedStyle(document.body);
+            const youtubeIframeStyles = window.getComputedStyle(youtubeIframe);
+            const weatherIframeStyles = window.getComputedStyle(weatherIframe);
+      
+            return bodyStyles?.margin === '0px' && bodyStyles?.padding === '0px'
+            && youtubeIframeStyles?.margin === '0px' && youtubeIframeStyles?.padding === '0px'
+            && weatherIframeStyles?.margin === '0px' && weatherIframeStyles?.padding === '0px'?
+              correct() :
+              wrong('Should remove any margin and padding from the body and iframes');
+          }),
+      
+          // Test 3 - check that iframes have 100% width
+          this.page.execute(() => {
+            const windowWidth = `${window.innerWidth}px`;
+            const iframeContainer = document.getElementsByClassName('iframe-container');
+            if (!iframeContainer || iframeContainer.length !== 2) {
+              return wrong('Make sure there are 2 iframe-containers on the page');
+            }
+            const youtubeIframeContainerStyle = window.getComputedStyle(iframeContainer[0]);
+            const weatherIframeContainerStyle = window.getComputedStyle(iframeContainer[1]);
+      
+            return youtubeIframeContainerStyle.width === windowWidth && weatherIframeContainerStyle.width === windowWidth ?
+              correct() :
+              wrong('Width of both iframes should be set to 100% of the screen width');
+          }),
+      
+          // Test 4 - check youtube iframe height
+          this.page.execute(() => {
+            const windowHeight = window.innerHeight;
+            const youtubeIframe = document.querySelector('.iframe-container iframe[src*="youtube"]');
+            const youtubeIframeHeight = Number(window.getComputedStyle(youtubeIframe).height.replace('px', ''));
+      
+            return Math.round(((youtubeIframeHeight * 100) / windowHeight)) === 80 ?
+              correct() :
+              wrong('Be sure the height of the YouTube iframe is 80% of screen height');
+          }),
+      
+          // Test 5 - check youtube controls is hidden
+          this.page.execute(async () => {
+            const youtubeIframe = document.querySelector('.iframe-container iframe[src*="youtube"]');
+      
+            return youtubeIframe.src.includes('controls=0') ?
+              correct() :
+              wrong('Hide the controls for YouTube iframe');
+          }),
+      
+          // Test 6 - check div with the class distance-container
+          this.page.execute(async () => {
+            const iframeContainers = document.querySelectorAll('.iframe-container');
+            const distanceContainer = document.querySelector('.distance-container');
+      
+            return distanceContainer
+            && iframeContainers.length === 2
+            && iframeContainers[1].nextElementSibling?.classList.contains('distance-container') ?
+              correct() :
+              wrong('Should have a div with the class distance-container below the iframes"')
+          }),
+      
+          // Test 7 - check title for distances list
+          this.page.execute(async () => {
+            const distanceTitle = document.querySelector('.distance-container h2');
+            const distanceTitleContent = distanceTitle?.textContent;
+      
+            return distanceTitleContent === 'Running Distances' ?
+              correct() :
+              wrong('This component should have a title "Running Distances"')
+          }),
+      
+          // Test 8 - check distances content
+          this.page.execute(() => {
+            const distanceContainer = document.querySelector('.distance-container');
+            const distances = distanceContainer?.querySelectorAll('.distance');
+            let count = 0;
+      
+            for (const distance of distances) {
+              const title = distance.querySelector('h2');
+              const image = distance.querySelector('img');
+              const text = distance.querySelector('p');
+              if (title && title?.textContent.length > 0
+                && image && image?.getAttribute('src')
+                && text && text?.textContent.length > 0
+              ) {
+                ++count
+              }
+            }
+      
+            return count === 5 ?
+              correct() :
+              wrong('Make sure you add 5 courses and each has a title, image with src, and description')
+          }),
+      
+          // Test 9 - check .video-overlay block and its content
+          this.page.execute(async () => {
+            const videoOverlay = document.querySelector('.iframe-container iframe[src*="youtube"] + .video-overlay');
+            const title = videoOverlay?.querySelector('h1');
+            const button = videoOverlay?.querySelector('button');
+      
+            return videoOverlay && title && button ?
+              correct() :
+              wrong('Make sure you add a .video-overlay block with title and button');
+          }),
+      
+          // Test 10 - check .video-overlay styles
+          this.page.execute(async () => {
+            const videoOverlay = document.querySelector('.iframe-container iframe[src*="youtube"] + .video-overlay');
+            const styles = videoOverlay && window.getComputedStyle(videoOverlay);
+      
+            return videoOverlay && styles.position === 'absolute' && styles.backgroundColor === 'rgba(0, 0, 0, 0.5)' ?
+              correct() :
+              wrong('The .video-overlay block should have absolute positioning and a black background with 50% transparency');
+          }),
+      
+          // Test 11 - check fonts
+          this.page.execute(async () => {
+            const body = document.querySelector('body');
+            const fontFamily = window.getComputedStyle(body).getPropertyValue('font-family');
+            const fonts = fontFamily
+              && fontFamily.includes('Roboto')
+              && fontFamily.includes('Helvetica Neue')
+              && fontFamily.includes('Arial')
+              && fontFamily.includes('sans-serif');
+      
+            return fonts ?
+              correct() :
+              wrong('Make sure that the body tag is set to all fonts: Roboto, Helvetica Neue, Arial, sans-serif');
+          }),
+      
+          // Test 12 - check video title styles
+          this.page.execute(async () => {
+            const videoOverlay = document.querySelector('.iframe-container iframe[src*="youtube"] + .video-overlay');
+            const videoTitle = videoOverlay?.querySelector('h1');
+            const styles = videoTitle && window.getComputedStyle(videoTitle);
+      
+            return videoTitle && styles.fontSize === '73px' && styles.color === 'rgb(255, 255, 255)' && styles.top === '150px' ?
+              correct() :
+              wrong('The video block should have a header with a fontSize of 73px, white colour and a top indent of 150px');
+          }),
+      
+          // Test 13 - check video button styles
+          this.page.execute(async () => {
+            const videoOverlay = document.querySelector('.iframe-container iframe[src*="youtube"] + .video-overlay');
+            const videoButton = videoOverlay?.querySelector('button');
+            const styles = videoButton && window.getComputedStyle(videoButton);
+      
+            return videoButton
+            && videoButton.innerText === 'Join us!'
+            && styles.padding === '5px 10px'
+            && styles.border === '2px solid rgb(255, 255, 255)'
+            && styles.color === 'rgb(255, 255, 255)'
+            && styles.backgroundColor === 'rgba(0, 0, 0, 0)'
+            && styles.fontSize === '24px' ?
+              correct() :
+              wrong('The button should have the following styles: padding 5px 10px, white border (2px), white colour, transparent background, text "Join us!" with font size 24px');
+          }),
+      
+          // Test 14 - check list of distances maximum width
+          this.page.execute(async () => {
+            const distanceContainer = document.querySelector('.distance-container');
+            const styles = window.getComputedStyle(distanceContainer);
+      
+            return distanceContainer && styles.maxWidth === '1000px'
+            && styles.marginLeft === styles.marginRight ?
+              correct() :
+              wrong('Make sure that the list of distances has a maximum width of 1000px and is placed in the middle');
+          }),
+      
+          // Test 15 - check distance list header font size
+          this.page.execute(async () => {
+            const distanceContainer = document.querySelector('.distance-container');
+            const distanceHeader = distanceContainer?.querySelector('h2');
+            const styles = window.getComputedStyle(distanceHeader);
+      
+            return distanceHeader && styles.fontSize === '32px' ?
+              correct() :
+              wrong('Make sure that the font size of the distance list header is 32px');
+          }),
+      
+          // Test 16 - alternate the image position on every list item
+          this.page.execute(async () => {
+            const distancesList = document.querySelectorAll('ul li');
+            let isAlternate = true;
+      
+            for (let index = 0; index < distancesList.length && isAlternate; index++) {
+              const img = distancesList[index].querySelector('img');
+              const styles = img && window.getComputedStyle(img);
+              const isEvenItem = index % 2 === 0;
+              const isImageOnLeft = styles.float === 'left';
+              const isImageOnRight = styles.float === 'right';
+      
+              isAlternate = (isEvenItem && isImageOnLeft) || (!isEvenItem && isImageOnRight);
+            }
+      
+            return isAlternate ?
+              correct() :
+              wrong('Make sure that alternate the image position on every list item');
+          }),
+      
+          // Test 17 - check list item styles
+          this.page.execute(async () => {
+            const distancesList = document.querySelectorAll('ul li');
+            let validStyles = true;
+      
+            for (let index = 0; index < distancesList.length && validStyles; index++) {
+              const distance = distancesList[index];
+              const styles = distance && window.getComputedStyle(distance);
+      
+              validStyles = styles.display === 'table' && styles.clear === 'both';
+            }
+      
+            return validStyles ?
+              correct() :
+              wrong('Ensure that the list items have the properties `display: table` and `clear: both`');
+          }),
+      
+          // Test 18 - check map title
+          this.page.execute(async () => {
+            const mapTitle = document.querySelector('.map-container h2');
+            const mapTitleContent = mapTitle?.textContent;
+      
+            return mapTitleContent === 'See you at Big Ben!' ?
+              correct() :
+              wrong('The map should have title with text See you at Big Ben!')
+          }),
+      
+          // Test 19 - check iframe with map
+          this.page.execute(async () => {
+            const embeddedMap = document.querySelector('.map-container iframe');
+      
+            return embeddedMap && embeddedMap.src.includes('google.com/maps/embed') ?
+              correct() :
+              wrong('The last iframe should have an embedded map')
+          }),
+      
+          // Test 20 - check .distance-image
+          this.page.execute(async () => {
+            const distanceImages = document.querySelectorAll('.distance-image');
+      
+            return distanceImages && distanceImages.length === 5 ?
+              correct() :
+              wrong('Should have 5 images with the class distance-image')
+          }),
+      
+          // Test 21 - check saturate filter applied by default
+          this.page.execute(async () => {
+            const distanceImages = document.querySelectorAll('.distance img');
+            let saturateImages = 0;
+      
+            distanceImages.forEach((image) => {
+              const computedStyle = getComputedStyle(image);
+              if (computedStyle && computedStyle.filter === 'saturate(1)') {
+                saturateImages++;
+              }
+            });
+      
+            return saturateImages === 5 ?
+              correct() :
+              wrong('Every image should have saturate filter applied by default');
+          }),
+      
+          // Test 22 - check super-saturates on hover
+          this.node.execute(async () => {
+            const image = await this.page.findBySelector('.distance img');
+            await image.hover();
+            sleep(300);
+            const hoverImage = await this.page.findBySelector('.distance img:hover');
+            const styles = await hoverImage?.getComputedStyles();
+      
+            return styles?.filter === 'saturate(2)' ?
+              correct() :
+              wrong('Every image should be super-saturates on hover');
+          }),
+        ]
+      }
+      
+      it('Test stage', async () => {
+          await new Test().runTests()
+        }
+      ).timeout(30000);
+    learner_created: false
+feedback_link: https://hyperskill.org/projects/362/stages/2149/implement#comment
+status: Failed
+record: 5
